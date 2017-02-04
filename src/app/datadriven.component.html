@@ -1,0 +1,17 @@
+<form [formGroup] = "myForm">
+    <label for="name">Name</label><br/>
+    <input type="text" id="name" [formControl]="myForm.controls['name']"><br/>
+    <div *ngIf = "!myForm.controls['name'].valid">Required</div><br/>
+
+    <label for="email">Email</label><br/>
+    <input type="text" id="email" [formControl]="myForm.controls['email']"><br/>
+    <div *ngIf = "!myForm.controls['email'].valid">Required</div><br/>
+
+    <label for="post">Post</label><br/>
+    <textarea  id="post" [formControl]="myForm.controls['post']"></textarea><br/>
+    <div *ngIf = "!myForm.controls['post'].valid">Minimum Length 10</div><br/>
+
+    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!myForm.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="getData()">Get Data</button>
+    
+</form>
